@@ -1,0 +1,17 @@
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\WEB_API_PERIODICO.exe
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\WEB_API_PERIODICO.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\WEB_API_PERIODICO.deps.json
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\WEB_API_PERIODICO.runtimeconfig.json
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\WEB_API_PERIODICO.pdb
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\System.Data.SqlClient.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\runtimes\win-x86\native\sni.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\kevro\source\repos\WEB_API_PERIODICO\WEB_API_PERIODICO\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
