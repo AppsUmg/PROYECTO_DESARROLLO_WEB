@@ -100,7 +100,7 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_GET_USUARIO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 1);
-                da.SelectCommand.Parameters.AddWithValue("@ID_USUARIO", "");
+                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", "");
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -121,9 +121,9 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_GET_USUARIO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO",2);
-                da.SelectCommand.Parameters.AddWithValue("@ID_USUARIO", Usuario);
+                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", Usuario);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+               da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
                 conn.Dispose();
                 conn.Close();

@@ -41,7 +41,7 @@ namespace WEB_API_PERIODICO.Controllers
         {
             return this.Content(ClsUsuario.ModificarUsuario(ROLE_ID, PAIS_ID, USER_NAME, PASSWORD, NOMBRE, APELLIDO, TELEFONO, CORREO, CORREO_CONFIMACION, DIRECCION, NIT,ESTADO), "application/json", System.Text.Encoding.UTF8);
         }
-        [HttpGet("{value}")]
+        [HttpGet("{USER_NAME}")]
         public ActionResult getUsuarioByUserName(string USER_NAME)
         {
             return this.Content(ClsUsuario.getUsuarioById(USER_NAME), "application/json", System.Text.Encoding.UTF8);

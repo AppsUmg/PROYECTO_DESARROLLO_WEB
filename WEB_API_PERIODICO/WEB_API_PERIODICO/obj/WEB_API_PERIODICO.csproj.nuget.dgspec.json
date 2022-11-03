@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kevro\\source\\repos\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj": {}
+    "C:\\Users\\kevro\\OneDrive\\Documentos\\GitHub\\PROYECTO_DESARROLLO_WEB\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kevro\\source\\repos\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj": {
+    "C:\\Users\\kevro\\OneDrive\\Documentos\\GitHub\\PROYECTO_DESARROLLO_WEB\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kevro\\source\\repos\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj",
+        "projectUniqueName": "C:\\Users\\kevro\\OneDrive\\Documentos\\GitHub\\PROYECTO_DESARROLLO_WEB\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj",
         "projectName": "WEB_API_PERIODICO",
-        "projectPath": "C:\\Users\\kevro\\source\\repos\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj",
+        "projectPath": "C:\\Users\\kevro\\OneDrive\\Documentos\\GitHub\\PROYECTO_DESARROLLO_WEB\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj",
         "packagesPath": "C:\\Users\\kevro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevro\\source\\repos\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\obj\\",
+        "outputPath": "C:\\Users\\kevro\\OneDrive\\Documentos\\GitHub\\PROYECTO_DESARROLLO_WEB\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.25.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -51,6 +55,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.25.0, )"
             }
           },
           "imports": [
