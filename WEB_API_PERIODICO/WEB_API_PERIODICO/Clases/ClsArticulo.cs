@@ -5,8 +5,16 @@ namespace WEB_API_PERIODICO.Clases
 {
     public class ClsArticulo
     {
+        public int ID_ARTICULO { get; set; }
+        public string TITULO { get; set; }
+        public int ID_SUB_CATEGORIA { get; set; }
+        public int ID_VISIBILIDAD { get; set; }
+        public int ID_USUARIO_PUBLICADOR { get; set; }
+        public int ID_ESTADO { get; set; }
+        public string CONTENIDO { get; set; }
 
-        public static string NuevoArticulo(string TITULO, int ID_SUB_CATEGORIA,int ID_VISIBILIDAD,int ID_USUARIO_PUBLICADOR, int ID_ESTADO,string CONTENIDO)
+
+        public static string NuevoArticulo(ClsArticulo articulo)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -18,12 +26,12 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 1);
                 da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", -1);
-                da.SelectCommand.Parameters.AddWithValue("@TITULO", TITULO);
-                da.SelectCommand.Parameters.AddWithValue("@ID_SUB_CATEGORIA", ID_SUB_CATEGORIA);
-                da.SelectCommand.Parameters.AddWithValue("@ID_VISIBILIDAD", ID_VISIBILIDAD);
-                da.SelectCommand.Parameters.AddWithValue("@ID_USUARIO_PUBLICADOR", ID_USUARIO_PUBLICADOR);
-                da.SelectCommand.Parameters.AddWithValue("@ID_ESTADO", ID_ESTADO);
-                da.SelectCommand.Parameters.AddWithValue("@CONTENIDO", CONTENIDO);
+                da.SelectCommand.Parameters.AddWithValue("@TITULO", articulo.TITULO);
+                da.SelectCommand.Parameters.AddWithValue("@ID_SUB_CATEGORIA", articulo.ID_SUB_CATEGORIA);
+                da.SelectCommand.Parameters.AddWithValue("@ID_VISIBILIDAD", articulo.ID_VISIBILIDAD);
+                da.SelectCommand.Parameters.AddWithValue("@ID_USUARIO_PUBLICADOR", articulo.ID_USUARIO_PUBLICADOR);
+                da.SelectCommand.Parameters.AddWithValue("@ID_ESTADO", articulo.ID_ESTADO);
+                da.SelectCommand.Parameters.AddWithValue("@CONTENIDO", articulo.CONTENIDO);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -32,7 +40,7 @@ namespace WEB_API_PERIODICO.Clases
             }
             return Result;
         }
-        public static string ModificarArticulo(int ID_ARTICULO, string TITULO, int ID_SUB_CATEGORIA, int ID_VISIBILIDAD, int ID_USUARIO_PUBLICADOR, int ID_ESTADO, string CONTENIDO)
+        public static string ModificarArticulo(ClsArticulo articulo)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -42,14 +50,14 @@ namespace WEB_API_PERIODICO.Clases
                 DataTable dt = new DataTable();
                 da.SelectCommand = new SqlCommand("[USP_SET_ARTICULO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
-                da.SelectCommand.Parameters.AddWithValue("@TIPO", 2);
-                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", ID_ARTICULO);
-                da.SelectCommand.Parameters.AddWithValue("@TITULO", TITULO);
-                da.SelectCommand.Parameters.AddWithValue("@ID_SUB_CATEGORIA", ID_SUB_CATEGORIA);
-                da.SelectCommand.Parameters.AddWithValue("@ID_VISIBILIDAD", ID_VISIBILIDAD);
-                da.SelectCommand.Parameters.AddWithValue("@ID_USUARIO_PUBLICADOR", ID_USUARIO_PUBLICADOR);
-                da.SelectCommand.Parameters.AddWithValue("@ID_ESTADO", ID_ESTADO);
-                da.SelectCommand.Parameters.AddWithValue("@CONTENIDO", CONTENIDO);
+                da.SelectCommand.Parameters.AddWithValue("@TIPO",2);
+                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO",articulo.ID_ARTICULO);
+                da.SelectCommand.Parameters.AddWithValue("@TITULO", articulo.TITULO);
+                da.SelectCommand.Parameters.AddWithValue("@ID_SUB_CATEGORIA", articulo.ID_SUB_CATEGORIA);
+                da.SelectCommand.Parameters.AddWithValue("@ID_VISIBILIDAD", articulo.ID_VISIBILIDAD);
+                da.SelectCommand.Parameters.AddWithValue("@ID_USUARIO_PUBLICADOR", articulo.ID_USUARIO_PUBLICADOR);
+                da.SelectCommand.Parameters.AddWithValue("@ID_ESTADO", articulo.ID_ESTADO);
+                da.SelectCommand.Parameters.AddWithValue("@CONTENIDO", articulo.CONTENIDO);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -58,7 +66,7 @@ namespace WEB_API_PERIODICO.Clases
             }
             return Result;
         }
-        public static string EliminarArticulo(int ID_ARTICULO)
+        public static string EliminarArticulo(ClsArticulo articulo)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -68,7 +76,7 @@ namespace WEB_API_PERIODICO.Clases
                 DataTable dt = new DataTable();
                 da.SelectCommand = new SqlCommand("[USP_GET_DELETE_ARTICULO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
-                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", ID_ARTICULO);
+                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", articulo.ID_ARTICULO);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -97,7 +105,7 @@ namespace WEB_API_PERIODICO.Clases
             }
             return Result;
         }
-        public static string getArticuloById(int ID_ARTICULO)
+        public static string getArticuloById(ClsArticulo articulo)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -108,7 +116,7 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 2);
-                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", ID_ARTICULO);
+                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", articulo.ID_ARTICULO);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);

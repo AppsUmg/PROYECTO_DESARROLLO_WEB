@@ -15,11 +15,12 @@ namespace WEB_API_PERIODICO.Clases.ConfigToken
 
             var claims = new ClaimsIdentity();
             claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, @username));
-            claims.AddClaim(new Claim(ClaimTypes.GivenName, "Prueba de nombre"));
-            for (int i = 0; i < 5; i++)
-            {
-                claims.AddClaim(new Claim(ClaimTypes.Role, "visitante" + i));
-            }
+            //claims.AddClaim(new Claim(ClaimTypes.GivenName, "VISITANTE"));
+            claims.AddClaim(new Claim(ClaimTypes.Role, "VISITANTE"));
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    claims.AddClaim(new Claim(ClaimTypes.Role, "visitante" + i));
+            //}
 
 
             var tokenDescription = new SecurityTokenDescriptor()

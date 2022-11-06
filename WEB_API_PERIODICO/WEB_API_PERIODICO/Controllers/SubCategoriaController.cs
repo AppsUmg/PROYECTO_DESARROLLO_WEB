@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WEB_API_PERIODICO.Clases;
 
 namespace WEB_API_PERIODICO.Controllers
 {
     [Route("SubCategorias")]
     [ApiController]
+    [Authorize(Roles = "VISITANTE")]
     public class SubCategoriaController : Controller
     {
         [HttpPost]

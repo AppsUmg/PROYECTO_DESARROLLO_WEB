@@ -1,51 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WEB_API_PERIODICO.Clases;
 
 namespace WEB_API_PERIODICO.Controllers
 {
     [Route("Usuario")]
     [ApiController]
+
     public class UsuarioController : Controller
     {
         [HttpPost]
-        public ActionResult CrearUsuario(
-                int ROLE_ID
-               ,int PAIS_ID
-               ,string USER_NAME
-               ,string PASSWORD
-               ,string NOMBRE
-               ,string APELLIDO
-               ,string TELEFONO
-               ,string CORREO
-               ,string CORREO_CONFIMACION
-               ,string DIRECCION
-               ,string NIT)
+        public ActionResult CrearUsuario([FromBody] ClsUsuario usuario)
         {
-            return this.Content(ClsUsuario.CrearUsuario(ROLE_ID,PAIS_ID,USER_NAME,PASSWORD,NOMBRE,APELLIDO,TELEFONO,CORREO,CORREO_CONFIMACION,DIRECCION,NIT), "application/json", System.Text.Encoding.UTF8);
+            return this.Content(ClsUsuario.CrearUsuario(usuario), "application/json", System.Text.Encoding.UTF8);
         }
 
         [HttpPut]
-        public ActionResult ModificarUsuario(
-                 int ROLE_ID
-                ,int PAIS_ID
-                ,string USER_NAME
-                ,string PASSWORD
-                ,string NOMBRE
-                ,string APELLIDO
-                ,string TELEFONO
-                ,string CORREO
-                ,string CORREO_CONFIMACION
-                ,string DIRECCION
-                ,string NIT
-                ,Boolean ESTADO)
+        public ActionResult ModificarUsuario(ClsUsuario usuario)
         {
-            return this.Content(ClsUsuario.ModificarUsuario(ROLE_ID, PAIS_ID, USER_NAME, PASSWORD, NOMBRE, APELLIDO, TELEFONO, CORREO, CORREO_CONFIMACION, DIRECCION, NIT,ESTADO), "application/json", System.Text.Encoding.UTF8);
+            return this.Content(ClsUsuario.ModificarUsuario(usuario), "application/json", System.Text.Encoding.UTF8);
         }
         [HttpGet("{USER_NAME}")]
-        public ActionResult getUsuarioByUserName(string USER_NAME)
+        public ActionResult getUsuarioByUserName(ClsUsuario usuario)
         {
-            return this.Content(ClsUsuario.getUsuarioById(USER_NAME), "application/json", System.Text.Encoding.UTF8);
+            return this.Content(ClsUsuario.getUsuarioById(usuario), "application/json", System.Text.Encoding.UTF8);
         }
+        [Authorize(Roles = "VISITANTE")]
         [HttpGet]
         public ActionResult getAllUsuarios()
         {

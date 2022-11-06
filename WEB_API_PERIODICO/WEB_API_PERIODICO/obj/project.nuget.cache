@@ -1,14 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "QXHGQZt3s0STjd4HSdsAfhOegVxLOTmozuUVgeZzCLDuZGg+iGGc6loP8Oyf0ginwNr+QfwZAdIdCspzzVJSOg==",
+  "dgSpecHash": "0yzIjatYAo8z9zuJoboc59zJ8ftA3NG8GziEI6z+G4sqYWfUaCK28Yzw6/b6+bf4W5Ct4K3c5qxjGzjzAc73hQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\kevro\\OneDrive\\Documentos\\GitHub\\PROYECTO_DESARROLLO_WEB\\WEB_API_PERIODICO\\WEB_API_PERIODICO\\WEB_API_PERIODICO.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kevro\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.25.0\\microsoft.identitymodel.abstractions.6.25.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.25.0\\microsoft.identitymodel.jsonwebtokens.6.25.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.identitymodel.logging\\6.25.0\\microsoft.identitymodel.logging.6.25.0.nupkg.sha512",
+    "C:\\Users\\kevro\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\kevro\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.25.0\\microsoft.identitymodel.tokens.6.25.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\kevro\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

@@ -5,6 +5,19 @@ namespace WEB_API_PERIODICO.Clases
 {
     public class ClsUsuario
     {
+        public int ROLE_ID { get; set; }
+        public int PAIS_ID { get; set; }
+        public string USER_NAME { get; set; }
+        public string PASSWORD { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDO { get; set; }
+        public string TELEFONO { get; set; }
+        public string CORREO { get; set; }
+        public string CORREO_CONFIMACION { get; set; }
+        public string DIRECCION { get; set; }
+        public string NIT { get; set; }
+        public int ESTADO { get; set; }
+
 
         public static string getRole()
         {
@@ -25,7 +38,7 @@ namespace WEB_API_PERIODICO.Clases
             return Result;
         }
 
-        public static string CrearUsuario(int ROLE_ID, int PAIS_ID, string USER_NAME, string PASSWORD,string NOMBRE, string APELLIDO, string TELEFONO, string CORREO, string CORREO_CONFIMACION, string DIRECCION, string NIT)
+        public static string CrearUsuario(ClsUsuario usuario)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -36,17 +49,17 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_SET_USUARIO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 1);
-                da.SelectCommand.Parameters.AddWithValue("@ROLE_ID", ROLE_ID);
-                da.SelectCommand.Parameters.AddWithValue("@PAIS_ID", PAIS_ID);
-                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", USER_NAME);
-                da.SelectCommand.Parameters.AddWithValue("@PASSWORD", PASSWORD);
-                da.SelectCommand.Parameters.AddWithValue("@NOMBRE", NOMBRE);
-                da.SelectCommand.Parameters.AddWithValue("@APELLIDO", APELLIDO);
-                da.SelectCommand.Parameters.AddWithValue("@TELEFONO", TELEFONO);
-                da.SelectCommand.Parameters.AddWithValue("@CORREO", CORREO);
-                da.SelectCommand.Parameters.AddWithValue("@CORREO_CONFIMACION", CORREO_CONFIMACION);
-                da.SelectCommand.Parameters.AddWithValue("@DIRECCION", DIRECCION);
-                da.SelectCommand.Parameters.AddWithValue("@NIT", NIT);
+                da.SelectCommand.Parameters.AddWithValue("@ROLE_ID", usuario.ROLE_ID);
+                da.SelectCommand.Parameters.AddWithValue("@PAIS_ID", usuario.PAIS_ID);
+                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", usuario.USER_NAME);
+                da.SelectCommand.Parameters.AddWithValue("@PASSWORD", usuario.PASSWORD);
+                da.SelectCommand.Parameters.AddWithValue("@NOMBRE", usuario.NOMBRE);
+                da.SelectCommand.Parameters.AddWithValue("@APELLIDO", usuario.APELLIDO);
+                da.SelectCommand.Parameters.AddWithValue("@TELEFONO", usuario.TELEFONO);
+                da.SelectCommand.Parameters.AddWithValue("@CORREO", usuario.CORREO);
+                da.SelectCommand.Parameters.AddWithValue("@CORREO_CONFIMACION", usuario.CORREO_CONFIMACION);
+                da.SelectCommand.Parameters.AddWithValue("@DIRECCION", usuario.DIRECCION);
+                da.SelectCommand.Parameters.AddWithValue("@NIT", usuario.NIT);
                 da.SelectCommand.Parameters.AddWithValue("@ESTADO", 1);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
@@ -57,7 +70,7 @@ namespace WEB_API_PERIODICO.Clases
             return Result;
         }
 
-        public static string ModificarUsuario(int ROLE_ID, int PAIS_ID, string USER_NAME, string PASSWORD, string NOMBRE, string APELLIDO, string TELEFONO, string CORREO, string CORREO_CONFIMACION, string DIRECCION, string NIT,Boolean ESTADO)
+        public static string ModificarUsuario(ClsUsuario usuario)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -68,18 +81,18 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_SET_USUARIO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 2);
-                da.SelectCommand.Parameters.AddWithValue("@ROLE_ID", ROLE_ID);
-                da.SelectCommand.Parameters.AddWithValue("@PAIS_ID", PAIS_ID);
-                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", USER_NAME);
-                da.SelectCommand.Parameters.AddWithValue("@PASSWORD", PASSWORD);
-                da.SelectCommand.Parameters.AddWithValue("@NOMBRE", NOMBRE);
-                da.SelectCommand.Parameters.AddWithValue("@APELLIDO", APELLIDO);
-                da.SelectCommand.Parameters.AddWithValue("@TELEFONO", TELEFONO);
-                da.SelectCommand.Parameters.AddWithValue("@CORREO", CORREO);
-                da.SelectCommand.Parameters.AddWithValue("@CORREO_CONFIMACION", CORREO_CONFIMACION);
-                da.SelectCommand.Parameters.AddWithValue("@DIRECCION", DIRECCION);
-                da.SelectCommand.Parameters.AddWithValue("@NIT", NIT);
-                da.SelectCommand.Parameters.AddWithValue("@ESTADO", ESTADO);
+                da.SelectCommand.Parameters.AddWithValue("@ROLE_ID", usuario.ROLE_ID);
+                da.SelectCommand.Parameters.AddWithValue("@PAIS_ID", usuario.PAIS_ID);
+                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", usuario.USER_NAME);
+                da.SelectCommand.Parameters.AddWithValue("@PASSWORD", usuario.PASSWORD);
+                da.SelectCommand.Parameters.AddWithValue("@NOMBRE", usuario.NOMBRE);
+                da.SelectCommand.Parameters.AddWithValue("@APELLIDO", usuario.APELLIDO);
+                da.SelectCommand.Parameters.AddWithValue("@TELEFONO", usuario.TELEFONO);
+                da.SelectCommand.Parameters.AddWithValue("@CORREO", usuario.CORREO);
+                da.SelectCommand.Parameters.AddWithValue("@CORREO_CONFIMACION", usuario.CORREO_CONFIMACION);
+                da.SelectCommand.Parameters.AddWithValue("@DIRECCION", usuario.DIRECCION);
+                da.SelectCommand.Parameters.AddWithValue("@NIT", usuario.NIT);
+                da.SelectCommand.Parameters.AddWithValue("@ESTADO", usuario.ESTADO);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -110,7 +123,7 @@ namespace WEB_API_PERIODICO.Clases
             return Result;
         }
 
-        public static string getUsuarioById(string Usuario)
+        public static string getUsuarioById(ClsUsuario usuario)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -121,7 +134,7 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_GET_USUARIO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO",2);
-                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", Usuario);
+                da.SelectCommand.Parameters.AddWithValue("@USER_NAME", usuario.USER_NAME);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
