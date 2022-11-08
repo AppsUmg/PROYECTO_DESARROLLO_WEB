@@ -55,6 +55,28 @@ namespace WEB_API_PERIODICO.Clases
                 DataTable dt = new DataTable();
                 da.SelectCommand = new SqlCommand("[USP_GET_SUB_CATEGORIAS]", conn);
                 da.SelectCommand.CommandTimeout = 0;
+                da.SelectCommand.Parameters.AddWithValue("@TIPO", 1);
+                da.SelectCommand.Parameters.AddWithValue("@ID_CATEGORIA", -1);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                Result = ClsSqlServer.toJson(dt);
+                conn.Dispose();
+                conn.Close();
+            }
+            return Result;
+        }
+        public static string getSubCategoriasByCategoria(int ID_CATEGORIA)
+        {
+            string Result = "";
+            using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = new SqlCommand("[USP_GET_SUB_CATEGORIAS]", conn);
+                da.SelectCommand.CommandTimeout = 0;
+                da.SelectCommand.Parameters.AddWithValue("@TIPO", 2);
+                da.SelectCommand.Parameters.AddWithValue("@ID_CATEGORIA", ID_CATEGORIA);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);

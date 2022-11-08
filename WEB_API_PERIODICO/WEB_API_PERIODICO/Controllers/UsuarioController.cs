@@ -31,5 +31,11 @@ namespace WEB_API_PERIODICO.Controllers
         {
             return this.Content(ClsUsuario.getAllUsuarios(), "application/json", System.Text.Encoding.UTF8);
         }
+        [Authorize(Roles = "VISITANTE")]
+        [HttpGet("Roles")]
+        public ActionResult getRoles()
+        {
+            return this.Content(ClsUsuario.getRole(), "application/json", System.Text.Encoding.UTF8);
+        }
     }
 }

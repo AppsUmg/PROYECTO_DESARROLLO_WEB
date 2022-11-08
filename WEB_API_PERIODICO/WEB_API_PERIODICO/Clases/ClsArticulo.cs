@@ -105,6 +105,45 @@ namespace WEB_API_PERIODICO.Clases
             }
             return Result;
         }
+        public static string getVisibilidad()
+        {
+            string Result = "";
+            using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO_TIPO_VISIBILIDAD]", conn);
+                da.SelectCommand.CommandTimeout = 0;
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                Result = ClsSqlServer.toJson(dt);
+                conn.Dispose();
+                conn.Close();
+            }
+            return Result;
+        }
+        public static string getEstadosArticulo()
+        {
+            string Result = "";
+            using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO_ESTADOS]", conn);
+                da.SelectCommand.CommandTimeout = 0;
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                Result = ClsSqlServer.toJson(dt);
+                conn.Dispose();
+                conn.Close();
+            }
+            return Result;
+        }
+
+
+
         public static string getArticuloById(ClsArticulo articulo)
         {
             string Result = "";

@@ -6,7 +6,6 @@ namespace WEB_API_PERIODICO.Controllers
 {
     [Route("Region")]
     [ApiController]
-    [Authorize(Roles = "VISITANTE")]
     public class PaisController : Controller
     {
         [HttpGet]
