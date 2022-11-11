@@ -10,12 +10,22 @@ namespace WEB_API_PERIODICO.Controllers
         [HttpPost]
         public ActionResult<object> Login([FromBody] ClsLogin login)
         {
-            JWTHelper tks = new JWTHelper();
-            ClsLogin use = new ClsLogin();
-            string Token = tks.CrearToken(login.Usuario);
-            use.Usuario = login.Usuario;
-            use.Token = Token;
-            return Ok(use);
+            ClsRespuestaLogin ClsRespuestaLogin = ClsLogin.LoginDb(login);
+            if (ClsRespuestaLogin.Estado == 1)
+            {
+                JWTHelper tks = new JWTHelper();
+                string Token = tks.CrearToken(ClsRespuestaLogin);
+                //ClsRespuestaLogin.Usuario = login.Usuario;
+                ClsRespuestaLogin.Token = Token;
+                return Ok(ClsRespuestaLogin);
+
+            }
+            else {
+                return this.Content(ClsRespuestaLogin.JsonResult, "application/json", System.Text.Encoding.UTF8);
+            }
+ 
         }
     }
 }
+
+

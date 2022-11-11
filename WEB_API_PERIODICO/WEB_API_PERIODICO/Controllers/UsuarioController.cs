@@ -25,13 +25,13 @@ namespace WEB_API_PERIODICO.Controllers
         {
             return this.Content(ClsUsuario.getUsuarioById(usuario), "application/json", System.Text.Encoding.UTF8);
         }
-        [Authorize(Roles = "VISITANTE")]
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpGet]
         public ActionResult getAllUsuarios()
         {
             return this.Content(ClsUsuario.getAllUsuarios(), "application/json", System.Text.Encoding.UTF8);
         }
-        [Authorize(Roles = "VISITANTE")]
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpGet("Roles")]
         public ActionResult getRoles()
         {

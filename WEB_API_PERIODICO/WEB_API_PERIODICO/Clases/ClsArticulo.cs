@@ -66,7 +66,7 @@ namespace WEB_API_PERIODICO.Clases
             }
             return Result;
         }
-        public static string EliminarArticulo(ClsArticulo articulo)
+        public static string EliminarArticulo(int ID_ARTICULO)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -76,7 +76,7 @@ namespace WEB_API_PERIODICO.Clases
                 DataTable dt = new DataTable();
                 da.SelectCommand = new SqlCommand("[USP_GET_DELETE_ARTICULO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
-                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", articulo.ID_ARTICULO);
+                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", ID_ARTICULO);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -96,7 +96,7 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 1);
-                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", -1);
+                da.SelectCommand.Parameters.AddWithValue("@ID", -1);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);
@@ -144,7 +144,7 @@ namespace WEB_API_PERIODICO.Clases
 
 
 
-        public static string getArticuloById(ClsArticulo articulo)
+        public static string getArticuloById(int ID_ARTICULO)
         {
             string Result = "";
             using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
@@ -155,7 +155,48 @@ namespace WEB_API_PERIODICO.Clases
                 da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO]", conn);
                 da.SelectCommand.CommandTimeout = 0;
                 da.SelectCommand.Parameters.AddWithValue("@TIPO", 2);
-                da.SelectCommand.Parameters.AddWithValue("@ID_ARTICULO", articulo.ID_ARTICULO);
+                da.SelectCommand.Parameters.AddWithValue("@ID", ID_ARTICULO);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                Result = ClsSqlServer.toJson(dt);
+                conn.Dispose();
+                conn.Close();
+            }
+            return Result;
+        }
+
+        public static string getArticuloByIdSubCategoria(int ID_SUB_CATEGORIA)
+        {
+            string Result = "";
+            using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO]", conn);
+                da.SelectCommand.CommandTimeout = 0;
+                da.SelectCommand.Parameters.AddWithValue("@TIPO", 3);
+                da.SelectCommand.Parameters.AddWithValue("@ID", ID_SUB_CATEGORIA);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+                Result = ClsSqlServer.toJson(dt);
+                conn.Dispose();
+                conn.Close();
+            }
+            return Result;
+        }
+        public static string getArticuloByIdCategoria(int ID_CATEGORIA)
+        {
+            string Result = "";
+            using (SqlConnection conn = new SqlConnection(ClsSqlServer.ConnectionString))
+            {
+                conn.Open();
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = new SqlCommand("[USP_GET_ARTICULO]", conn);
+                da.SelectCommand.CommandTimeout = 0;
+                da.SelectCommand.Parameters.AddWithValue("@TIPO", 3);
+                da.SelectCommand.Parameters.AddWithValue("@ID", ID_CATEGORIA);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
                 Result = ClsSqlServer.toJson(dt);

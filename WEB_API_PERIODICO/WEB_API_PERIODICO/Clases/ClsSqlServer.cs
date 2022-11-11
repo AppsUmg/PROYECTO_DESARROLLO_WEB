@@ -48,6 +48,4 @@ namespace WEB_API_PERIODICO.Clases
         }
 
     }
-
-
 }

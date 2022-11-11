@@ -9,13 +9,14 @@ namespace WEB_API_PERIODICO.Clases.ConfigToken
     {
         private readonly byte[] secret = Encoding.ASCII.GetBytes("ADXSADSAD-SADSADASDASD-DSADSADSADSAX");
 
-        public string CrearToken(string username)
+        public string CrearToken(ClsRespuestaLogin ClsRespuestaLogin)
         {
 
 
             var claims = new ClaimsIdentity();
-            claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, @username));
+            claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, ClsRespuestaLogin.Usuario));
             //claims.AddClaim(new Claim(ClaimTypes.GivenName, "VISITANTE"));
+            claims.AddClaim(new Claim(ClaimTypes.Role, ClsRespuestaLogin.Rol));
             claims.AddClaim(new Claim(ClaimTypes.Role, "VISITANTE"));
             //for (int i = 0; i < 5; i++)
             //{
