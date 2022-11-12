@@ -1,0 +1,81 @@
+<h1>Editar Noticia</h1>
+
+<div class="container">
+    <div fxFlex="100" fxLayout="column">
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Título</mat-label>
+            <input type="text" matInput required [(ngModel)]="noticia[0].TITULO">
+        </mat-form-field>
+
+
+        <div class="" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+                <mat-select placeholder="Subcategoría" name="subcategory" [(ngModel)]="noticia[0].ID_SUB_CATEGORIA">
+                    <mat-option *ngFor="let subcategory of subcategory" [value]="subcategory.ID_SUB_CATEGORIA" required>
+                        {{subcategory.SUB_CATEGORIA}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+                <mat-select placeholder="Estados" name="status" [(ngModel)]="noticia[0].ESTADO">
+                    <mat-option *ngFor="let status of status" [value]="status.ESTADO" required>
+                        {{status.DESCRIPCION}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+                <mat-select placeholder="Visibilidad" name="visibility" [(ngModel)]="noticia[0].ID_VISUALIZACION">
+                    <mat-option *ngFor="let visibility of visibility" [value]="visibility.ID" required>
+                        {{visibility.NOMBRE}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Url de imagen</mat-label>
+            <textarea type="text" matInput   [(ngModel)]="imagennueva.url"></textarea>
+        </mat-form-field>
+        
+        <div class="example-container mat-elevation-z8" fxFlex="100">
+        <mat-table [dataSource]="imagenes" #tabla1>
+
+
+            <ng-container matColumnDef="url">
+                <mat-header-cell *matHeaderCellDef> Url Imágenes </mat-header-cell>
+                <mat-cell *matCellDef="let imagen"> 
+                  <span class="mobile-label">Url Imágenes:</span>
+                  {{imagen.URL_IMAGEN}}
+                </mat-cell>
+              </ng-container>
+            <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnas;"></mat-row>
+          </mat-table>
+        </div>
+
+        <mat-form-field fxFlex="100" class="descripcion">
+            <mat-label>Descripción</mat-label>
+            <textarea type="text" matInput required [(ngModel)]="noticia[0].CONTENIDO"></textarea>
+        </mat-form-field>
+
+
+        <br>
+        <button mat-raised-button color="primary" (click)="onSubmit()" class="btn-save">
+            <mat-icon>edit</mat-icon>Guardar
+        </button>
+        <button mat-raised-button color="warn" (click)="mostrarDialogo()" class="btn-delete">
+            <mat-icon>remove</mat-icon>Borrar
+        </button>
+        <button mat-button (click)="regresar()" class="btn-back">
+            <mat-icon>arrow_back_ios</mat-icon>Regresar
+        </button>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" class="mat-sidenav">
+        <mat-toolbar color="secundary">
+            <span>Diario Nacional</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de Noticias</span>
+            </a>
+
+            <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()" *ngIf="this.show">
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Añadir Noticia</span>
+            </a>
+
+            <a href="https://www.soy502.com/ver_impreso/2022/Nov/1668060000/1" class="btn btn-default" target="_blank" download="pdf-test.pdf">
+                <span>Descargar versión digital</span>
+                <mat-icon>arrow_downward</mat-icon>
+            </a>
+
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav position="end" #sidenav2 mode="push" class="mat-sidenav">
+        <mat-toolbar color="secundary">
+            <span>{{userInfo[0].USUARIO}}</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav2.toggle()">
+                <mat-icon>person</mat-icon>
+            </button>
+        </mat-toolbar>
+        <h1>Nombre: {{userInfo[0].NOMBRE}}</h1>
+        <h1>Apellido:{{userInfo[0].APELLIDO}}</h1>
+
+        <mat-nav-list>
+            <a routerLink="/login" mat-list-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Cerrar Sesión</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+
+
+
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <div class="imagen">
+            <img class="imagen-card" src="https://drive.google.com/uc?export=view&id=1xyXRzTIA7shE-ftG1IxfxSzvNUkpZE8Z">
+        </div>
+     
+        <button mat-icon-button (click)="sidenav2.toggle()">
+            <mat-icon>person</mat-icon>
+        </button>
+       
+    </mat-toolbar>
+
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

@@ -1,0 +1,111 @@
+<div>
+  <img class="wave" src="assets\imagenes\wave.png">
+  <div class="container">
+    <div class="img"></div>
+    <div class="content">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div fxFlex="100" fxLayout="column">
+          <img src="assets\imagenes\avatar.svg">
+          <h2 class="title">Registrate</h2>
+          <p *ngIf="registerMessage">{{registerMessage}}</p>
+          <div class="" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>País</mat-label>
+              <mat-select formControlName="paiS_ID">
+                <mat-option *ngFor="let pais of pais" [value]="pais.ID" required>
+                  {{pais.PAIS}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="!registerForm.controls.paiS_ID.valid">Seleccione su país</mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Nombre de usuario</mat-label>
+              <input matInput formControlName="useR_NAME" required>
+              <mat-error *ngIf="!registerForm.controls.useR_NAME.valid">Introduzca un nombre de usuario</mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div class="" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" formControlName="password" required>
+              <mat-error *ngIf="!registerForm.controls.password.valid">Introduzca una contraseña</mat-error>
+            </mat-form-field>
+
+
+
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Confirmación de contraseña</mat-label>
+              <input matInput type="password"  [(ngModel)]="confirmacionPassword" required [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+
+
+
+          <div class="" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre" required>
+              <mat-error *ngIf="!registerForm.controls.nombre.valid">Introduzca su nombre</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Apellido</mat-label>
+              <input matInput formControlName="apellido" required>
+              <mat-error *ngIf="!registerForm.controls.apellido.valid">Introduzca su apellido</mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Teléfono</mat-label>
+              <input matInput  formControlName="telefono" required>
+              <mat-error *ngIf="!registerForm.controls.telefono.valid">Introduzca su teléfono</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Correo</mat-label>
+              <input matInput formControlName="correo" required>
+              <mat-error *ngIf="!registerForm.controls.correo.valid">Introduzca su correo</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Confirmación Correo</mat-label>
+              <input matInput formControlName="correO_CONFIMACION" required>
+              <mat-error *ngIf="!registerForm.controls.correO_CONFIMACION.valid">Introduzca su correo de confirmación</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field fxFlex="50" fxFlex.xs="100">
+              <mat-label>Nit</mat-label>
+              <input  matInput formControlName="nit" required>
+              <mat-error *ngIf="!registerForm.controls.nit.valid">Introduzca su nit</mat-error>
+            </mat-form-field>
+          </div>
+
+
+            <mat-form-field fxFlex="100">
+              <mat-label>Dirección</mat-label>
+              <textarea matInput formControlName="direccion" required></textarea>
+              <mat-error *ngIf="!registerForm.controls.direccion.valid">Introduzca su direccion</mat-error>
+            </mat-form-field>
+    
+
+         
+          <button type="submit" mat-raised-button class="btn">Registrarse</button>
+          <a [routerLink]="['/login']">Iniciar Sesión</a>
+        </div>
+
+      </form>
+    </div>
+</div>

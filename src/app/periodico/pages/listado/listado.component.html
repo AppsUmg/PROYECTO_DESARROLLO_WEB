@@ -1,0 +1,28 @@
+<div>
+<div class="imagen" fxFlex="75" fxFlex.xs="25">
+  <img class="imagen-card" src="https://drive.google.com/uc?export=view&id=17LUY3HaxJACkhgloF-q2c0Ve9CcXThu2">
+</div>
+
+<div class="filtro" fxFlex="25" fxFlex.xs="75">
+  <mat-form-field>
+    <mat-select placeholder="Seleccione subcategoría para filtrar"  name="subcategory" [(ngModel)]="subCategoryId" (ngModelChange)="onChange($event)"> 
+      <mat-option *ngFor="let subcategory of subcategory" [value]="subcategory.ID_SUB_CATEGORIA" required>
+        {{subcategory.SUB_CATEGORIA}}
+      </mat-option>
+    </mat-select>
+
+    </mat-form-field>
+</div>
+</div>
+
+
+
+<mat-divider></mat-divider>
+<h1>Noticias</h1>
+<br>
+
+<div class=band>
+  <div *ngFor="let item of noticias; let first = first" [ngClass]="{ first: first}">
+    <app-noticia-tarjeta [item]="item"></app-noticia-tarjeta>
+  </div>
+</div>

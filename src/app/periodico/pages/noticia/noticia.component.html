@@ -1,0 +1,22 @@
+<mat-grid-list cols="1" *ngIf="!noticia; else divNoticia">
+  <mat-grid-tile>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<ng-template #divNoticia>
+  <h1>{{noticia[0].TITULO}}</h1>
+  <div class="info">
+    <div class="slideshow-container">
+      <div *ngFor="let item of imagenes">
+        <img src={{item.URL_IMAGEN}} style="width:100%">
+      </div>
+    </div>
+    <div>
+      <h2>{{noticia[0].CONTENIDO}}</h2>
+    </div>
+  </div>
+  <button mat-button (click)="regresar()"> Regresar </button>
+
+
+</ng-template>

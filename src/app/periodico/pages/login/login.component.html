@@ -1,0 +1,32 @@
+<div>
+  <img class="wave" src="assets\imagenes\wave.png">
+  <div class="container">
+    <div class="img">
+      <img src="assets\imagenes\bg.svg">
+    </div>
+    <div class="login-content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <img src="assets\imagenes\avatar.svg">
+        <h2 class="title">Bienvenido</h2>
+        <p *ngIf="loginError">{{loginError}}</p>
+        <mat-form-field>
+          <h5>Usuario</h5>
+          <div class="login">
+            <mat-icon>person</mat-icon>
+            <input matInput formControlName="user" required [(ngModel)]="credenciales.usuario">
+          </div>
+          <mat-error *ngIf="!loginForm.controls.user.valid">Introduzca su usuario</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <h5>Contraseña</h5>
+          <div class="login">
+            <mat-icon>lock</mat-icon>
+            <input matInput type="password" formControlName="password" required [(ngModel)]="credenciales.password">
+          </div>
+          <mat-error *ngIf="!loginForm.controls.password.valid">Introduzca la contraseña</mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button class="btn">Iniciar Sesión</button>
+        <a [routerLink]="['/register']">Registrarse</a>
+      </form>
+    </div>
+  </div>

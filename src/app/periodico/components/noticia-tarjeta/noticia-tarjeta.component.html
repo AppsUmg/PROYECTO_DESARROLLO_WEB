@@ -1,0 +1,12 @@
+<a class="card">
+  <div class="tag">{{item.SUB_CATEGORIA}}</div>
+
+  <img class="thumb" src={{item.IMAGEN_URL}} alt="">
+
+  <article>
+    <h1>{{item.TITULO}}</h1>
+    <p>{{item.CONTENIDO}}...</p>
+    <button mat-button [routerLink]="['/periodico',item.ID_ARTICULO]">Leer mas</button>
+    <button mat-button *ngIf="this.show" [routerLink]="['/periodico/editar',item.ID_ARTICULO]">Editar</button>
+  </article>
+</a>
